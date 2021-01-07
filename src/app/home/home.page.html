@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      COVID Information
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="covid-info">
+    <ngx-charts-pie-chart [scheme]="colorScheme" [results]="COVIDdata" [gradient]="gradient"
+      [legendPosition]="legendPosition" [labels]="showLabels" [doughnut]="isDoughnut" (select)="onSelect($event)"
+      (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+    </ngx-charts-pie-chart>
+  </div>
+  <div class="covid-controls">
+    <ion-list>
+      <ion-radio-group [(ngModel)]="control" (ionChange)="updateData()">
+        <!-- <ion-list-header>
+          <ion-label>Control</ion-label>
+        </ion-list-header> -->
+
+        <ion-item>
+          <ion-label>New Confirmed</ion-label>
+          <ion-radio slot="start" value="nc"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Total Confirmed</ion-label>
+          <ion-radio slot="start" value="tc"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Total Deaths</ion-label>
+          <ion-radio slot="start" value="td"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </div>
+</ion-content>
